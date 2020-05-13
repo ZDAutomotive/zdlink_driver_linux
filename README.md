@@ -4,23 +4,29 @@ A public repo to release zd-link driver for linux.
 
 ## Install
 
-'''bash
+```bash
+
 chmod +x zdlink-install.sh
-'''
+
+```
 
 ### compliant mode
 
 By default it installs compliant driver.
 
-'''bash
+```bash
+
 zdlink-install.sh
-'''
+
+```
 
 ### legacy mode
 
-'''bash
+```bash
+
 zdlink-install.sh --legacy
-'''
+
+```
 
 ## Note
 
