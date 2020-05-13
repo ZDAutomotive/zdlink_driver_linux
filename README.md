@@ -28,6 +28,6 @@ zdlink-install.sh --legacy
 
 ```
 
-## Note
+## Notes
 
 ubuntu system driver would be backuped as lan78xx.ubuntu
