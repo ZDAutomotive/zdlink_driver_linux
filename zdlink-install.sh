@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # install zd-link1000 linux kernel driver
 
@@ -40,7 +40,7 @@ if [ -z $1 ] ; then
     printf "OK: zd-link1000 driver(compliant) is installed to ${KERNEL_DRIVE_PATH}\n"
     printf "OK: ubuntu system driver is backuped as <${KERNEL_DRIVER_BACKUP}>\n"
 
-elif [ $1 == '--legacy' ]; then
+elif [ $1 == "--legacy" ]; then
     echo "installing legacy driver..."
     echo "current linux kernel version $path"
 

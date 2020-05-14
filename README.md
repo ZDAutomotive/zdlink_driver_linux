@@ -16,7 +16,7 @@ By default it installs compliant driver.
 
 ```bash
 
-zdlink-install.sh
+./zdlink-install.sh
 
 ```
 
@@ -24,7 +24,7 @@ zdlink-install.sh
 
 ```bash
 
-zdlink-install.sh --legacy
+./zdlink-install.sh --legacy
 
 ```
 
