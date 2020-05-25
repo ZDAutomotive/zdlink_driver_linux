@@ -24,10 +24,19 @@ else
     echo "please goto https://github.com/ZDAutomotive/zdlink_driver_linux/releases to download latest driver"
     exit 1
 fi
+maclist=$(ip l | grep fc:88:88 -B 1 | grep ': ' | awk '{print $2}')
+macarray=${maclist//:/}
 
 if [ -z $1 ] ; then
     echo "installing compliant driver..."
-
+    
+    for mac in ${macarray[@]}
+    do
+        	if [[ ${mac} != *"@"* ]];then
+			ip l set $mac down 
+			echo "set link $mac down"
+        	fi
+    done
 
     sudo rmmod ${KERNEL_DRIVER_MODULE}
     if [ -f ${KERNEL_DRIVE_PATH}${KERNEL_DRIVER_BACKUP} ] ; then
@@ -42,7 +51,13 @@ if [ -z $1 ] ; then
 
 elif [ $1 == "--legacy" ]; then
     echo "installing legacy driver..."
-    echo "current linux kernel version $path"
+    for mac in ${macarray[@]}
+    do
+                if [[ ${mac} != *"@"* ]];then
+                        ip l set $mac down
+                        echo "set link $mac down"
+                fi
+    done
 
     sudo rmmod ${KERNEL_DRIVER_MODULE}
     if [ -f ${KERNEL_DRIVE_PATH}${KERNEL_DRIVER_BACKUP} ] ; then
@@ -60,5 +75,5 @@ else
     echo "wrong argument, using --legacy to install driver for legacy mode"
 fi
 
-
+modprobe lan78xx
 

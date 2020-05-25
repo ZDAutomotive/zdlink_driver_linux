@@ -9,6 +9,8 @@ chmod +x zdlink-install.sh
 
 ```
 
+To install the driver for zdlink, this script will first set all the zdlink interfaces down.
+
 ### compliant mode
 
 By default it installs compliant driver.
