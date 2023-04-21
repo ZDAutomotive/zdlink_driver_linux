@@ -77,3 +77,7 @@ fi
 
 modprobe lan78xx
 
+# Update Ubuntu initramfs with same zd-link driver .ko
+update-initramfs -u -k $(uname -r)
+echo "OK: zd-link1000 driver kernel file is installed to initramfs"
+
