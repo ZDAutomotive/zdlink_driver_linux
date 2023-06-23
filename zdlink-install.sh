@@ -24,7 +24,7 @@ else
     echo "please goto https://github.com/ZDAutomotive/zdlink_driver_linux/releases to download latest driver"
     exit 1
 fi
-maclist=$(ip l | grep fc:88:88 -B 1 | grep ': ' | awk '{print $2}')
+maclist=$(ip l | grep f*:88:88 -B 1 | grep ': ' | awk '{print $2}')
 macarray=${maclist//:/}
 
 if [ -z $1 ] ; then
@@ -76,4 +76,8 @@ else
 fi
 
 modprobe lan78xx
+
+# Update Ubuntu initramfs with same zd-link driver .ko
+update-initramfs -u -k $(uname -r)
+echo "OK: zd-link1000 driver kernel file is installed to initramfs"
 
